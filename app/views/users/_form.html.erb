@@ -1,0 +1,48 @@
+
+<div class="new_construct"> 
+
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="new_item">
+
+      <%= f.label :电子邮箱, :class => "tit", :for => 'user_email' %>
+      <div class="bdmain">
+        <%= f.email_field :email, :style => "width:230px;", :class => "textinp",  :placeholder => '请输入电子邮箱' %>
+      </div>
+    </div>
+    <div class="new_item">
+
+      <%= f.label :密码, :class => "tit", :for => 'reg_password' %>
+      <div class="bdmain">
+        <%= f.password_field :passwd, :id => "reg_password", :style => "width:230px", :class => "textinp", :placeholder => '请输入密码' %>
+      </div>
+    </div>
+
+    <div class="new_item">
+      <div class="tit"></div>
+      <div class="bdmain">
+        <div class="lf"><input type="checkbox" checked="checked" name="after" value="1" id="after" class="labelbox" /><label for="after">我已看过并同意<a target="_blank" href="http://login.sina.com.cn/regagreement.html">《网络服务使用协议》</a></label></div>
+      </div>
+      <div class="new_plus" id="red_after" style="display:none;">
+      </div>
+    </div>
+    <div class="btdiv padding_less"><%= f.submit :class => "btn_ljzc", :value => '注册微博' %></div>
+
+  <% end %>
+</div> 
+
+
+
+
+
+

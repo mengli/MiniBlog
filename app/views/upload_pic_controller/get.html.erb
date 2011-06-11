@@ -1,0 +1,8 @@
+<p>修改头像</p>
+<%= form_for(:picture, :url => {:action => 'save'}, :html => { :multipart => true }) do |form| %>
+  上传头像: <%= form.file_field(:uploaded_picture) %><br/>
+  <%= submit_tag("上传" ) %>
+<% end %>
+
+
+

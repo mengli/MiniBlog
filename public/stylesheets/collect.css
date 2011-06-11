@@ -1,0 +1,10 @@
+a.concernBtn_Yet, .MIB_linkal a.concernBtn_Yet:link, .MIB_linkal a.concernBtn_Yet:visited, .MIB_linkal a.concernBtn_Yet:hover, a.concernBtn_Yet, a.concernBtn_Yet:link, a.concernBtn_Yet:visited, a.concernBtn_Yet:hover {
+    cursor: default;
+}
+
+a.addFollow, a.addFollow:link, a.addFollow:visited {
+    cursor: pointer;
+}
+
+
+

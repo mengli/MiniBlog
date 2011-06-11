@@ -1,0 +1,23 @@
+<%= form_for(@forward) do |f| %>
+  <% if @forward.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@forward.errors.count, "error") %> prohibited this forward from being saved:</h2>
+
+      <ul>
+        <% @forward.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :init_user_id %>
+  <%= f.hidden_field :init_message_id %>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment, :rows => 5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit :value => '分享' %>
+  </div>
+<% end %>

@@ -1,0 +1,28 @@
+a.concernBtn_Yet, .MIB_linkal a.concernBtn_Yet:link, .MIB_linkal a.concernBtn_Yet:visited, .MIB_linkal a.concernBtn_Yet:hover, a.concernBtn_Yet, a.concernBtn_Yet:link, a.concernBtn_Yet:visited, a.concernBtn_Yet:hover {
+    background: none repeat scroll 0 0 #EAEAEA;
+    border: 1px solid #D7D7D7;
+    color: #666666;
+    cursor: default;
+    display: block;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    text-align: left;
+    text-decoration: none;
+    width: 56px;
+}
+
+a.addFollow, a.addFollow:link, a.addFollow:visited {
+    background: none repeat scroll 0 0 #E3FFD5;
+    border: 1px solid #CFF3BB;
+    cursor: pointer;
+    display: block;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    text-align: left;
+    width: 66px;
+}
+
+
+

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @forward.user_id %>
+</p>
+
+<p>
+  <b>Init user:</b>
+  <%= @forward.init_user_id %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @forward.message_id %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @forward.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_forward_path(@forward) %> |
+<%= link_to 'Back', forwards_path %>

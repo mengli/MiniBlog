@@ -1,0 +1,22 @@
+<%= form_for(@message) do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "") %> 微博发布失败:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label '有什么事想告诉大家?' %><br />
+    <%= f.text_area :content, :rows => 5 %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit :value => '发布' %>
+  </div>
+<% end %>

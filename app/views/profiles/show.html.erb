@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>昵称:</b>
+  <%= @profile.nick_name %>
+</p>
+
+<p>
+  <b>性别:</b>
+  <%= @profile.sex %>
+</p>
+
+<p>
+  <b>省份:</b>
+  <%= @profile.province %>
+</p>
+
+<p>
+  <b>城市:</b>
+  <%= @profile.city %>
+</p>
+
+<p>
+  <b>生日:</b>
+  <%= @profile.birthday %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
+

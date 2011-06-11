@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>我的首页 微博-随时随地分享身边的新鲜事儿</title>
+    <%= javascript_include_tag :defaults %>
+    <%= stylesheet_link_tag "register" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div class="MB_wrap">
+      <div class="login_top"> <a href="" class="llink"></a>
+        <div class="logoLink"></div>
+      </div>
+      <div class="login_body">
+        <div class="login_l">
+        </div>
+        <div class="login_r">
+
+          <div class="login_item">
+            <div> <%= link_to '立即注册微博', new_user_path, :target => "_blank", :class => "regbtn" %></div>
+            <div class="loginform" id="login_form">
+              <%= form_tag do %>
+                <fieldset>
+                  <div class="input_bg">
+                    <%= label_tag 'loginname', '电子邮箱:' %><%= email_field_tag :name, params[:name], :id => "loginname", :placeholder => '请输入电子邮箱' %>
+                  </div>
+                  <div class="input_bg">
+                    <%= label_tag 'password', '创建密码:' %><%= password_field_tag :password, params[:password], :placeholder => '创建密码' %>
+                  </div>
+                  <div class="setting">
+                    <span class="lf"> <input type="checkbox" class="labelbox" id="remusrname" checked="" />
+                      <label>下次自动登录</label></span><a class="rt" href="http://login.sina.com.cn/cgi/getpwd/getpwd0.php?entry=sso" target="_blank">找回密码</a>
+                  </div>
+                  <div class="signin">
+                    <%= submit_tag "登录微博", :class => "sp" %>
+                  </div>
+                </fieldset>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>猜你喜欢 新浪微博-随时随地分享身边的新鲜事儿</title>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "suggest_users" %>
+    <%= stylesheet_link_tag "follow_user" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+
+    <ul class="concernBox" id="guess_container">
+      <% @s_users.each do |s_user| %>
+        <li class="MIB_linedot2">
+          <div class="conBox_l"><a href="http://t.sina.com.cn/tbg"><img src="<%= s_user.head_photo_url %>" imgtype="head" uid="1495389364" title="<%= s_user.nick_name %>" pop="true" /></a></div>
+          <div class="conBox_c">
+            <span class="name"><a href="http://t.sina.com.cn/tbg" uid="1495389364" title="<%= s_user.nick_name %>"><%= s_user.nick_name %></a></span>
+            <p class="address"><img title="" class="small_icon male" src="http://timg.sjs.sinajs.cn/t3/style/images/common/transparent.gif" />山东,青岛
+              <span>粉丝<strong>675</strong>人</span></p>
+            <div class="content gray6"><a href='http://t.sina.com.cn/1495389364' class='ms'>牛，小心石头砸了。(5分钟前)</a></div>
+            <div class="content gray9">你们有相同标签：看书</div>
+          </div>
+          <div class="conBox_r">
+            <p><a class="addFollow" href="javascript:void(0);" onclick="App.followadd(<%= s_user.id %>, <%= session[:user].id %>, this); return false;"><span class="addnew">+</span>加关注</a></p>
+            <p style="display:none" type="add_mouse_hover"><a href="javascript:void(0);" onclick="App.notInterest('1495389364',this);return false;">不感兴趣</a></p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+  </body>
+</html>

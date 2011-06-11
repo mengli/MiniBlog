@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8" />
+
+    <title>我的首页</title>
+    <%= stylesheet_link_tag "style" %>
+
+  </head>
+  <body>
+    <div>
+      &nbsp;
+    </div>
+
+  <header>
+    <div id="logo">
+      <a href="#"><img src="images/loginlogo_714beta.png" alt="Logo" /></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">我的首页</a></li>
+        <li><a href="#">我的微博</a></li>
+        <li><a href="#">好友</a></li>
+        <li><a href="#">模板</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="content">
+    <section class="hfeed">
+
+      <%= render 'form' %>
+
+      <% @messages.each do |message| %>
+
+        <article class="hentry">
+          <div class="bfeed">
+            <a href="#"><img title="<%= message.user_nick_name %>" src="<%= message.user_head_photo_url %>" /></a>
+          </div>
+          <div class="bbody">
+            <div class="bcontent"><a href="#" title="<%= message.user_nick_name %>" ><%= message.user_nick_name %></a>:<%= message.content %></div>
+
+            
+            <footer>
+              <div class="btime"><% unit = "分钟前"; seconds = (Time.now - message.created_at).to_i %><%= seconds >= 60 ? seconds / 60 : seconds%><%= seconds >= 60 ? "分钟前" : "秒前" %>
+                <span class="from">&emsp;来自</span><a href="#">新浪微博</a></div>
+              <div class="binfo"><a href="<%= '/forwards/new?forward_user_id=' + session[:user].id.to_s + '&init_user_id=' + message.userid.to_s + '&message_content=' + message.content + '&init_user_name=' + message.user_nick_name + '&init_message_id=' + message.id.to_s %>">转发</a>
+              &emsp;&bull;&emsp;
+              <a class="addFollow" href="javascript:void(0);" onclick="App.collect(<%= message.id %>, <%= session[:user].id %>, this); return false;"><span class="addnew"></span>收藏</a>
+              &emsp;&bull;&emsp;
+              <a href="<%= '/comments/new?message_id=' + message.id.to_s + '&commented_user_id=' + message.userid.to_s + '&user_id=' + session[:user].id.to_s + '&user_nick_name=' + session[:profile].nick_name + '&user_head_photo_url=' + session[:user].head_photo_url %>">评论(<%= message.comment_count %>)</a>
+              &emsp;&bull;&emsp;</div>
+            </footer>
+          </div>
+
+
+        </article>
+      <% end %>
+
+    </section>
+    <aside>
+      <img title="<%= session[:profile].nick_name %>" src="<%= session[:user].head_photo_url %>"/>
+      <a href=<%=  "/profiles/" + session[:user].id.to_s %>><%= session[:profile].nick_name %></a>
+      <%=  session[:profile].province %>
+      <%=  session[:profile].city %>
+
+      <a href="/1086564055/follow">关注</a>
+      <a href="/1086564055/fans">粉丝</a>
+      <a href="/jowett1985/profile">微博</a>
+
+      <ul>
+        <li><a href="#">我的首页</a></li>
+        <li><a href="#">@提到我的</a></li>
+        <li><a href="#">我的评论</a></li>
+        <li><a href="#">我的收藏</a></li>
+      </ul>
+      <br />
+    </aside>
+  </div>
+  <footer id="main-footer">
+    <section id="footer-1">
+      Copyright Webtint &copy; 2010
+    </section>
+    <section id="footer-2">
+
+    </section>
+  </footer>
+
+</body>
+</html>

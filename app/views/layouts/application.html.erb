@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>新浪微博-随时随地分享身边的新鲜事儿</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+    <script type="text/javascript">
+      var i = 0;
+      //var p = new PeriodicalExecuter(updateMessage, 1); //创建实例。每0.1秒调用一次showTime方法
+      function showTime(){
+        $('time').innerHTML=new Date().toString();
+      }
+
+      function updateMessage()
+      {
+        showTime;
+        //var empID = $F('lstEmployees');
+        //var y = $F('lstYears');
+        var url = '/message_queue/fetch_msg';
+        var pars = 'id=1';
+        var myAjax = new Ajax.Updater("message", url, {method: 'get', parameters: pars});
+      }
+
+      function showResponse(originalRequest)
+      {
+        //put returned XML in the textarea
+        $('message').value = originalRequest.responseText;
+      }
+    </script>
+  </head>
+  <body>
+
+    <%= yield %>
+
+  </body>
+</html>

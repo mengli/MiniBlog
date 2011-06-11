@@ -1,0 +1,17 @@
+<h1>发表评论</h1>
+
+<%= render 'form' %>
+
+<hr/>
+
+<% @comments.each do |comment| %>
+  <p/>
+  <li>
+    <div class="head_pic" style="font-size:20px">
+      <a href="http://t.sina.com.cn/bufengfeng"><img title="<%= comment.user_nick_name %>" uid="1210256047" imgtype="head" src="<%= comment.user_head_photo_url %>" /></a>
+      <a href="http://t.sina.com.cn/bufengfeng" title="<%= comment.user_nick_name %>" ><%= comment.user_nick_name %></a> : <%= comment.content %>
+    </div>
+  </li>
+<% end %>
+
+<%= link_to 'Back', comments_path %>
